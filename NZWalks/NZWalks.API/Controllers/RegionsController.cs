@@ -16,7 +16,7 @@ namespace NZWalks.API.Controllers
 
         public RegionsController(IRegionRepository regionRepository, IMapper mapper)
         {
-            this.regionRepository = regionRepository;
+            this.regionRepository = regionRepository;//inject the service into the class
             this.mapper = mapper;
         }
         [HttpGet]

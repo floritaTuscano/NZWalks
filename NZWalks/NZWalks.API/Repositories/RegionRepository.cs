@@ -7,9 +7,9 @@ namespace NZWalks.API.Repositories
     public class RegionRepository : IRegionRepository
     {
         private readonly NZWalksDBContext nZWalksDBContext;
-        public RegionRepository(NZWalksDBContext nZWalksDBContext)
+        public RegionRepository(NZWalksDBContext nZWalksDBContext) 
         {
-            this.nZWalksDBContext = nZWalksDBContext;
+            this.nZWalksDBContext = nZWalksDBContext;//inject the service into the class
         }
 
         public async Task<Region> AddAsync(Region region)

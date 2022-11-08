@@ -7,13 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<NZWalksDBContext>(options =>
+builder.Services.AddDbContext<NZWalksDBContext>(options => //dependency injection
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalsConnection"));
 
 });
-builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();  //inject the dependency in the services
 builder.Services.AddScoped<IWalkRepository, WalkRepository>();
+builder.Services.AddScoped<IWalkDifficultyRepository, WalkDifficultyRepository>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 //builder.Services.AddAutoMapper(typeof(AutoMapperProfileConfiguration).Assembly);
